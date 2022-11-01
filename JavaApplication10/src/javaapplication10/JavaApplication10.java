@@ -17,4 +17,8 @@ public class JavaApplication10 {
         // TODO code application logic here
     }
     //iuyasiufhiuahfiuhaiufhiusafhiusafiuhwsiuofhwiouegf
+    asdadadasda
+            asdasda
+            asdada
+                    asdadaq
 }
