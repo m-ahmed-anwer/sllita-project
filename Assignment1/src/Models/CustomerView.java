@@ -169,7 +169,8 @@ public class CustomerView extends javax.swing.JFrame {
                 .addGap(38, 38, 38))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(811, 482));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -178,14 +179,15 @@ public class CustomerView extends javax.swing.JFrame {
         int phoneNum=Integer.parseInt(jTextField3.getText());
         
         int count = 0;
-
-        while (phoneNum != 0) {
+        int temp=phoneNum;
+        while (temp != 0) {
           // num = num/10
-          phoneNum /= 10;
+          temp /= 10;
           ++count;
         }
         if(count!=10){
             jLabel5.setText("Insert a 10 digit number");
+            jLabel6.setText("");
         }else{
             c1= new Customer(name,mail,phoneNum);
             jLabel6.setText("");
