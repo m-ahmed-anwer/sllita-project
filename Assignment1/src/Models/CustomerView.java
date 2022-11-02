@@ -87,6 +87,10 @@ public class CustomerView extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -185,7 +189,7 @@ public class CustomerView extends javax.swing.JFrame {
         }else{
             c1= new Customer(name,mail,phoneNum);
             jLabel6.setText("");
-            jLabel5.setText("Customer Added");
+            jLabel5.setText("Customer Successfully Added");
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -196,7 +200,6 @@ public class CustomerView extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(c1.calcID()!=0){
-            new CustomerView().setVisible(false);
             new SeatReservation().setVisible(true);
        }else{
             jLabel6.setText("Add a Customer to reserve a seat");
