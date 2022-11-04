@@ -11,7 +11,7 @@ import static Models.Order.orderId;
  * @author ahmed
  */
 public class Customer {
-    static int id;
+    public static int id;
     private String name;
     private String email;
     private int phoneNum;

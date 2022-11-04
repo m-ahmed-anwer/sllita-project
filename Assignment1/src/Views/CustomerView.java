@@ -5,6 +5,9 @@
 package Views;
 
 import Models.Customer;
+import com.mysql.cj.protocol.Message;
+import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +20,7 @@ public class CustomerView extends javax.swing.JFrame {
      */
     public CustomerView() {
         initComponents();
+        setIconImage();
     }
 
     /**
@@ -45,6 +49,8 @@ public class CustomerView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Customer Details");
+        setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(245, 241, 230));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel1.setText("Add Customer Details");
@@ -134,7 +140,7 @@ public class CustomerView extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addGap(183, 183, 183))
+                .addGap(280, 280, 280))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,12 +168,13 @@ public class CustomerView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
                             .addComponent(jButton2))
-                        .addGap(127, 127, 127)
-                        .addComponent(jLabel6))
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel6)
+                        .addGap(86, 86, 86))
                     .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(843, 545));
@@ -175,7 +182,8 @@ public class CustomerView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if(c1.calcID()!=0){
+        if(Customer.id!=0){
+            new CustomerView().disable();
             new SeatReservation().setVisible(true);
         }else{
             jLabel6.setText("Add a Customer to reserve a seat");
@@ -194,19 +202,27 @@ public class CustomerView extends javax.swing.JFrame {
             temp /= 10;
             ++count;
         }
-        if(count!=10){
+        
+        if(name.equals("")||mail.equals("")){
+            jLabel5.setText("Add Name and E-mail");
+            jLabel6.setText("");
+        }else if(count!=10){
             jLabel5.setText("Insert a 10 digit number");
             jLabel6.setText("");
         }else{
             c1= new Customer(name,mail,phoneNum);
             jLabel6.setText("");
-            jLabel5.setText("Customer Successfully Added");
+            JOptionPane.showMessageDialog(rootPane, "Customer Successfully Added", "Message", HEIGHT);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jTextArea1.setText(c1.printDetail());
+        if(Customer.id!=0){
+            jTextArea1.setText(c1.printDetail());
+        }else{
+            jLabel6.setText("Add a Customer to View Details");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -260,4 +276,8 @@ public class CustomerView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+    private void setIconImage() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo.png")));
+    }
 }
