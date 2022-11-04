@@ -31,7 +31,7 @@ public class Customer {
         this.phoneNum = 0;
     }
 
-    static int calcID() {
+    public static int calcID() {
         return id;
     }
 
@@ -61,7 +61,7 @@ public class Customer {
     }
     
     // @overloaded
-    String printDetail(){
+    public String printDetail(){
         return("Customer Id : "+id+"\nName : "+name+
                "\nEmail : "+email+"\nPhone Number : "+phoneNum);
     }
