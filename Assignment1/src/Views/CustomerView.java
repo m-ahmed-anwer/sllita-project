@@ -5,15 +5,22 @@
 package Views;
 
 import Models.Customer;
+import DatabaseLayer.DatabaseConnect;
+import Views.SeatReservation;
 import com.mysql.cj.protocol.Message;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author ahmed
- */
+ */ 
 public class CustomerView extends javax.swing.JFrame {
+    Connection con =null;
+    PreparedStatement pst=null;
+    
     Models.Customer c1;
     /**
      * Creates new form CustomerView
@@ -21,6 +28,9 @@ public class CustomerView extends javax.swing.JFrame {
     public CustomerView() {
         initComponents();
         setIconImage();
+        
+        //Connection to Database
+        con= DatabaseConnect.connect();
     }
 
     /**
@@ -71,6 +81,12 @@ public class CustomerView extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         jLabel4.setText("Contact Number");
+
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         jButton1.setText("Add Customer");
@@ -185,6 +201,7 @@ public class CustomerView extends javax.swing.JFrame {
         if(Customer.id!=0){
             new CustomerView().disable();
             new SeatReservation().setVisible(true);
+            this.dispose();
         }else{
             jLabel6.setText("Add a Customer to reserve a seat");
         }
@@ -198,7 +215,6 @@ public class CustomerView extends javax.swing.JFrame {
         int count = 0;
         int temp=phoneNum;
         while (temp != 0) {
-            // num = num/10
             temp /= 10;
             ++count;
         }
@@ -206,11 +222,19 @@ public class CustomerView extends javax.swing.JFrame {
         if(name.equals("")||mail.equals("")){
             jLabel5.setText("Add Name and E-mail");
             jLabel6.setText("");
-        }else if(count!=10){
-            jLabel5.setText("Insert a 10 digit number");
+        }else if(count==10){
+            jLabel5.setText("Insert number");
             jLabel6.setText("");
         }else{
             c1= new Customer(name,mail,phoneNum);
+            
+            try {
+                String query="INSERT INTO customer(id,name,email,phone) VALUES('"+Customer.id+"','"+name+"','"+mail+"','"+phoneNum+"') ";
+                pst = con.prepareStatement(query);
+                pst.execute();
+            } catch (Exception e) {
+            }
+            
             jLabel6.setText("");
             JOptionPane.showMessageDialog(rootPane, "Customer Successfully Added", "Message", HEIGHT);
         }
@@ -224,6 +248,10 @@ public class CustomerView extends javax.swing.JFrame {
             jLabel6.setText("Add a Customer to View Details");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
     /**
      * @param args the command line arguments

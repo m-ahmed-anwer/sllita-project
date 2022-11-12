@@ -169,6 +169,7 @@ public class SeatReservation extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(seatNum!=0 && tableNum!=0 ){
             new FoodOrder().setVisible(true);
+            this.dispose();
         }else{
             jLabel6.setText("Reserve a Seat to Order Food");
         }
