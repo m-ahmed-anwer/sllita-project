@@ -6,8 +6,6 @@ package Views;
 
 import Models.Customer;
 import DatabaseLayer.DatabaseConnect;
-import Views.SeatReservation;
-import com.mysql.cj.protocol.Message;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
