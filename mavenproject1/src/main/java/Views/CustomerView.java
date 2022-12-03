@@ -17,8 +17,6 @@ import javax.swing.JOptionPane;
  *
  * @author ahmed
  */ 
-
-//Helo How are you krishantha
 public class CustomerView extends javax.swing.JFrame {
     Connection con =null;
     PreparedStatement pst=null;
