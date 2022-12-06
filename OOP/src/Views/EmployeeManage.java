@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Views;
 
 import static java.awt.image.ImageObserver.HEIGHT;
@@ -11,10 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import net.proteanit.sql.DbUtils;
-/**
- *
- * @author ahmed
- */
+
 public class EmployeeManage extends javax.swing.JFrame {
       
     Connection con =null;
@@ -42,7 +36,6 @@ public class EmployeeManage extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e);
         }
-            
     } 
 
     /**

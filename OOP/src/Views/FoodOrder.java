@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Views;
 import Models.Order;
 import DatabaseLayer.DatabaseConnect;
@@ -12,16 +9,13 @@ import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 
 
-/**
- *
- * @author ahmed
- */
 public class FoodOrder extends javax.swing.JFrame {
     Order o1;
     Connection con =null;
     PreparedStatement pst=null;
-    CustomerView c1= new CustomerView();
     ResultSet rs=null;
+    CustomerView c1= new CustomerView();
+    
     /**
      * Creates new form FoodOrder
      */

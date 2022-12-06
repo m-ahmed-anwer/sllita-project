@@ -1,17 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Views;
 
 import Contrllers.LoginController;
 import Models.Login;
 import Models.User;
 import javax.swing.JOptionPane;
-/**
- *
- * @author ahmed
- */
+
 public class LoginView extends javax.swing.JFrame {
     LoginController controllerObj;
     public LoginView() {

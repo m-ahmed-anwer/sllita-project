@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Views;
 
 import DatabaseLayer.DatabaseConnect;
@@ -13,10 +10,6 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
-/**
- *
- * @author ahmed
- */
 public class OrderView extends javax.swing.JFrame {
 
         Connection con =null;
@@ -34,8 +27,6 @@ public class OrderView extends javax.swing.JFrame {
     
         
           tableLoad();
- 
-       
     }
     
     public void tableLoad(){      
@@ -43,7 +34,9 @@ public class OrderView extends javax.swing.JFrame {
             String sql = "SELECT EmployeeId,OrderId from orders where EmployeeId !='0' ";
             pst = con.prepareStatement(sql);
             rs =pst.executeQuery();
+            
             jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+            
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -218,7 +211,7 @@ public class OrderView extends javax.swing.JFrame {
         String empId= jTable1.getValueAt(r, 0).toString();
         String orderId= jTable1.getValueAt(r, 1).toString();
         
-         jTextField1.setText(empId);
+        jTextField1.setText(empId);
         jTextField2.setText(orderId);
         
         
@@ -268,12 +261,15 @@ public class OrderView extends javax.swing.JFrame {
             } catch (Exception e) {
                 System.out.println(e);
             }
+            
+            
             try {
                 EmailHandler emailHandler= new EmailHandler();
                 emailHandler.sendOrderEmail(gmail, orderId);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            
             jLabel4.setText("Auto Generated Email sent to Customer");
             
             

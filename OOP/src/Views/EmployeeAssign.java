@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Views;
 
 import DatabaseLayer.DatabaseConnect;
@@ -12,10 +9,6 @@ import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 import java.sql.ResultSet;
 
-/**
- *
- * @author ahmed
- */
 public class EmployeeAssign extends javax.swing.JFrame {
 
     
@@ -29,7 +22,6 @@ public class EmployeeAssign extends javax.swing.JFrame {
     public EmployeeAssign() {
         initComponents();
         con = DatabaseConnect.connect();
-        tableLoad();
         tableAssign();
         tableLoad2();
         tableOrder();
@@ -37,20 +29,6 @@ public class EmployeeAssign extends javax.swing.JFrame {
  
        
     }
-    
-    public void tableLoad(){      
-        int empId=0;
-        try {
-            
-            String query=" INSERT INTO `orders` (`EmployeeId`, `OrderId`) VALUES ('13', '11') ";
-            pst = con.prepareStatement(query);
-            pst.executeQuery();
-            
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    } 
-    
     
     
     

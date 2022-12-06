@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Views;
 
 import DatabaseLayer.DatabaseConnect;
@@ -11,10 +8,7 @@ import java.sql.ResultSet;
 import net.proteanit.sql.DbUtils;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author ahmed
- */
+
 public class ReciptView extends javax.swing.JFrame {
 
     Connection con =null;
