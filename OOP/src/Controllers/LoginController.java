@@ -1,4 +1,4 @@
-package Contrllers;
+package Controllers;
 
 import Models.User;
 import java.util.ArrayList;

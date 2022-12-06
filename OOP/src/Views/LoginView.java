@@ -1,7 +1,7 @@
 
 package Views;
 
-import Contrllers.LoginController;
+import Controllers.LoginController;
 import Models.Login;
 import Models.User;
 import javax.swing.JOptionPane;
