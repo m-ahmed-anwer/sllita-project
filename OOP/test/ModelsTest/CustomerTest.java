@@ -9,6 +9,7 @@ public class CustomerTest {
     static Customer c1;
   
     
+    
     @BeforeAll
     public static void CreateCustomer()
     {
